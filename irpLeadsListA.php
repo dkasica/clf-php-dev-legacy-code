@@ -64,6 +64,7 @@ alert($alert); ?>
                         <th>Telefon</th>
                         <th>E-mail</th>
                         <th style="width: 60px;">Level</th>
+                        <th>Produkt</th>
                         <th style="width: 50px;">zaznacz</th>
                     </tr>
                 </thead>
@@ -92,6 +93,7 @@ alert($alert); ?>
                         <th>Telefon</th>
                         <th>E-mail</th>
                         <th style="width: 60px;">Level</th>
+                        <th>Produkt</th>
                         <th style="width: 50px;">zaznacz</th>
                     </tr>
                 </thead>
@@ -236,10 +238,9 @@ window.onload = function()
             return false;
         }
     });
-    
+
 
     $(document).ready(pokaz_leady());
-    
 };
 
 
@@ -272,6 +273,7 @@ function  pokaz_leady(){
                         d4,
                         v.email,
                         level,
+                        produkt,
                         '<input data-klient-id="'+v.klient_id+'" type="checkbox">'
                     ] 
                     ).node();
@@ -289,5 +291,4 @@ function  pokaz_leady(){
     .fail(function(){bootbox.alert("Nie udało się wysłać żądania.");})
     .complete(function(){$('#czarne-tlo-przetwarzam').hide();});
 };
-
 </script>
