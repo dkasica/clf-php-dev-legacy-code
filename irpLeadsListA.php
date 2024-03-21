@@ -148,12 +148,24 @@ window.onload = function()
     // ZAZNACZ WIELE LEADOW I WYŚWIETL FORMULARZ
     $(document).on('click','.btn-add-task-to-many',function(e)
     {
-        
+        e.preventDefault();
+        var grupa_leadow = $(this).parents('.grupa-leadow');
+        var zaznaczone = $('input[data-klient-id]:checked', grupa_leadow);
+        zaznaczone.each(function () {
+            $(this).prop('checked', false);
+        });
 
-        
-
-
-
+        var ile = $(this).data('ile');
+        if (ile > 0) {
+            var checkboxy = grupa_leadow.find('input[data-klient-id]');
+            var i = 0;
+            checkboxy.each(function () {
+                $(this).prop('checked', true);
+                i++;
+                if (ile === i) {return false}
+            });
+            grupa_leadow.find('.btn-add-task-to-checked').trigger('click');
+        }
     });
     
 
